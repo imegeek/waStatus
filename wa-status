@@ -1,0 +1,57 @@
+#!/data/data/com.termux/files/usr/bin/bash
+clear
+sleep 0.5
+#banner
+echo '
+        ooooooooooooo
+     oooo/:-....-:/oooo
+    ooo+- .-//+++/-. -+ooo
+   ooo- -+oooooooooo+- -ooo
+  ooo. /oo. .ooooooooo/ .ooo
+ ooo/ -oo+  `+ooooooooo- /ooo
+ ooo: /ooo: .+ooooooooo/ :ooo
+ ooo/ -oooo+. .:/`.-+oo- /ooo
+ oooo- /ooooo+:.`  .oo/ .oooo
+ oooo/ -oooooooooooo+- -oooo
+  ooo` ..``-//++//-``-+ooo
+  ooo+-::/+/:-....-:/oooo
+    ooo)oooooooooooo
+      oooooooooo
+       ooo
+         oo)
+
+'
+#checking dir
+if [ ! -d '/storage/emulated/0/WhatsApp/Media/.Statuses' ];then
+echo
+echo -e '\033[1m[x] WhatsApp not installed, [↓] Install it, [!] Opening Play Store.' 
+fi
+
+if [ ! -d '/storage/emulated/0/DCIM' ];then
+cd /sdcard
+mkdir DCIM
+fi
+
+#checking dir
+if [ ! -d '/storage/emulated/0/DCIM/WA-STATUS' ];then
+cd /sdcard/DCIM
+mkdir WA-STATUS
+fi
+
+#main activity
+echo -ne '\033[1m[!] Saving.\r'
+sleep 0.5
+echo -ne '\033[1m[!] Saving.\r'
+sleep 0.5
+echo -ne '\033[1m[!] Saving..\r'
+sleep 0.5
+echo -ne '\033[1m[!] Saving...\r'
+sleep 0.5
+if [ -d '/storage/emulated/0/WhatsApp/Media/.Statuses' ];then
+cd /storage/emulated/0/WhatsApp/Media/.Statuses/
+cp -rf * /sdcard/DCIM/WA-STATUS
+echo -ne '\033[1m[√] Files Saved Dir : emulated/0/DCIM/WA-STATUS\r'
+echo -ne '\n'
+echo
+exit
+fi
