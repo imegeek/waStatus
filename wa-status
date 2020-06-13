@@ -22,6 +22,12 @@ echo '
          oo)
 
 '
+#checking storage permission (allow)
+if [ ! -d '/sdcard' ];then
+termux-setup-storage
+sleep 6
+fi
+
 #checking dir
 if [ ! -d '/storage/emulated/0/WhatsApp/Media/.Statuses' ];then
 echo
