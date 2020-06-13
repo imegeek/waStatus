@@ -23,9 +23,9 @@ echo '
 
 '
 #checking storage permission (allow)
-if [ ! -d '/sdcard' ];then
+if [ ! -d '/data/data/com.termux/files/home/storage' ];then
 termux-setup-storage
-sleep 6
+sleep 5
 fi
 
 #checking dir
