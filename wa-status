@@ -50,7 +50,7 @@ fi
 #main activity
 c1='\e[1;3$(( $RANDOM * 6 / 32767 + 1 ))m'
 c2='\e[0;1;30m'
-c3='\e[1m'
+c3='\e[0;1m'
 HIDCRSR(){ echo -en "\033[?25l";}
 NORM(){ echo -en "\033[?12l\033[?25h";}
 
