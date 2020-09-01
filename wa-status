@@ -45,20 +45,60 @@ cd /sdcard/DCIM
 mkdir WA-STATUS
 fi
 
+
+
 #main activity
-echo -ne '\033[1m[!] Saving.\r'
+c1='\e[1m'
+c2='\e[0;1;30m'
+c3='\e[1m'
+HIDCRSR(){ echo -en "\033[?25l";}
+NORM(){ echo -en "\033[?12l\033[?25h";}
+
+HIDCRSR
+echo -ne "${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (0.1%) \r"
 sleep 0.5
-echo -ne '\033[1m[!] Saving.\r'
-sleep 0.5
-echo -ne '\033[1m[!] Saving..\r'
-sleep 0.5
-echo -ne '\033[1m[!] Saving...\r'
+echo -ne "${c1}▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (0.2%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (0.3%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (0.4%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (0.6%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (0.8%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (01%)  \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬▬${c3} (04%)  \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬▬${c3} (08%)  \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬▬${c3} (15%)  \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬▬${c3} (25%)  \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬▬${c3} (35%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬▬${c3} (45%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬▬${c3} (55%] \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬▬${c3} (60%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬▬${c3} (66%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬▬${c3} (77%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬▬${c3} (88%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c2}▬${c3} (99%) \r"
+sleep 0.1
+echo -ne "${c1}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬${c3} (100%) \r"
 sleep 0.5
 if [ -d '/storage/emulated/0/WhatsApp/Media/.Statuses' ];then
 cd /storage/emulated/0/WhatsApp/Media/.Statuses/
 cp -rf * /sdcard/DCIM/WA-STATUS
 echo -ne '\033[1m[√] Files Saved Dir : emulated/0/DCIM/WA-STATUS\r'
-echo -ne '\n'
-echo
-exit
-fi
+echo -e "\n" ;fi
+NORM
+###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
