@@ -3,24 +3,20 @@ clear
 sleep 0.5
 #banner
 printf "\e[1;3$(( $RANDOM * 6 / 32767 + 1 ))m"
-echo '
-        ooooooooooooo
-     oooo/:-....-:/oooo
-    ooo+- .-//+++/-. -+ooo
-   ooo- -+oooooooooo+- -ooo
-  ooo. /oo. .ooooooooo/ .ooo
- ooo/ -oo+  `+ooooooooo- /ooo
- ooo: /ooo: .+ooooooooo/ :ooo
- ooo/ -oooo+. .:/`.-+oo- /ooo
- oooo- /ooooo+:.`  .oo/ .oooo
- oooo/ -oooooooooooo+- -oooo
-  ooo` ..``-//++//-``-+ooo
-  ooo+-::/+/:-....-:/oooo
-    ooo)oooooooooooo
-      oooooooooo
-       ooo
-         oo)
+echo -e '\e[1m
 
+ WhatsApp Status Saver
+
+      ▄▄█▀▀▀▀▀▀▀█▄
+    ▄█▀   ▄▄     ▀█▄
+    █    ███       ▀█
+    █    ██▄        █
+    █     ▀██▄ ██   █
+    █▄      ▀███▀  █
+    ▀█▄          ▄▀
+     ▄█    ▄▄▄▄█▀
+     █   ▄█▀
+     ▀▀▀▀   version 1.4
 '
 #checking storage permission (allow)
 if [ ! -d '/data/data/com.termux/files/home/storage' ];then
@@ -31,9 +27,9 @@ fi
 #checking dir
 if [ ! -d '/storage/emulated/0/WhatsApp/Media/.Statuses' ];then
 echo
-echo -e '\033[1m[x] WhatsApp not installed, [↓] Install it, [!] Opening Play Store.' 
-fi
-
+echo -e '\033[1m[⬇] WhatsApp not installed, [!] Opening Play Store...'
+xdg-open https://play.google.com/store/apps/details?id=com.whatsapp;sleep 0.5;echo -e "\e[0m"
+else
 if [ ! -d '/storage/emulated/0/DCIM' ];then
 cd /sdcard
 mkdir DCIM
@@ -44,8 +40,6 @@ if [ ! -d '/storage/emulated/0/DCIM/WA-STATUS' ];then
 cd /sdcard/DCIM
 mkdir WA-STATUS
 fi
-
-
 
 #main activity
 c1="\e[1;3$(( $RANDOM * 6 / 32767 + 1 ))m"
@@ -98,7 +92,9 @@ sleep 0.5
 if [ -d '/storage/emulated/0/WhatsApp/Media/.Statuses' ];then
 cd /storage/emulated/0/WhatsApp/Media/.Statuses/
 cp -rf * /sdcard/DCIM/WA-STATUS
-echo -ne '\033[1m[√] Files Saved Dir : emulated/0/DCIM/WA-STATUS\r'
+echo -ne "${c1}[√] Files Saved to : emulated/0/DCIM/WA-STATUS\r"
 echo -e "\n" ;fi
 NORM
+fi
+
 ###>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
