@@ -1,11 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
 clear
 sleep 0.5
-#banner
+
+banner() {
 printf "\e[1;3$(( $RANDOM * 6 / 32767 + 1 ))m"
 echo -e '\e[1m
-
- WhatsApp Status Saver
 
       ▄▄█▀▀▀▀▀▀▀█▄
     ▄█▀   ▄▄     ▀█▄
@@ -17,7 +16,9 @@ echo -e '\e[1m
      ▄█    ▄▄▄▄█▀
      █   ▄█▀
      ▀▀▀▀   version 1.4
-'
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+' ; } ;banner
 #checking storage permission (allow)
 if [ ! -d '/data/data/com.termux/files/home/storage' ];then
 termux-setup-storage
