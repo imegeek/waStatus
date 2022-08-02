@@ -4,9 +4,9 @@
 | ----------------------------------------------------------------------------------------------------- |
 
 
-```
 #### Copy and paste the following command in Termux to quickly install waStatus Tool:
 
 ### • Quick Installation:
+```
 git clone https://github.com/abhackerofficial/waStatus &&
 cd waStatus ; ./saveStatus
