@@ -1,6 +1,6 @@
 ## waStatus
 
-| ![Preview](https://user-images.githubusercontent.com/63346676/182305518-6115a7b6-1ef1-4ae6-bd07-ae39ec040f0e.jpeg) |
+| ![Preview](https://user-images.githubusercontent.com/63346676/182307483-b1e314ad-bdac-48ce-8b94-3d710cf8bdd9.jpeg) |
 | ----------------------------------------------------------------------------------------------------- |
 
 
