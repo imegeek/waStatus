@@ -1,0 +1,83 @@
+#!/bin/bash
+
+source whatsapp.art
+sleep 0.2
+
+if [[ ! -d /storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses/ ]]
+then
+echo -e "[\e[91mx\e[0m] WhatsApp not installed!"
+fi
+
+cd /storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses/
+FILE=$(ls *)
+
+function ProgressBar {
+# Process data
+    let _progress=(${1}*100/${2}*100)/100
+    let _done=(${_progress}*3)/10
+    let _left=30-$_done
+# Build progressbar string lengths
+    _fill=$(printf "%${_done}s")
+    _empty=$(printf "%${_left}s")
+
+# 1.2 Build progressbar strings and print the ProgressBar line
+# 1.2.1 Output example:                           
+# 1.2.1.1 Progress : [########################################] 100%
+
+      if [[ $LEN -lt 20 ]]
+      then
+        C0=$"\e[1;91m"
+      elif [[ $LEN -lt 70 ]]
+      then
+        C0=$'\e[1;93m'
+      elif [[ $LEN -ge 70 ]]
+      then
+        C0=$'\e[1;92m'
+      fi
+ 
+R0=$'\e[0m'
+
+printf "\r$CHECK_SIZE/$GET_SIZE MiB ${SP}: ${_fill// /${C0}━${R0}}${_empty// /━} : [${_progress}/100%%] "
+}
+
+
+MAIN_SIZE=$(du -sb | awk '{print $1}')
+
+GET_SIZE=$((MAIN_SIZE/1024/1024))
+
+if [[ ${MAIN_SIZE} == ${CHECK_SIZE} ]]
+then
+printf "\r[Copying files $GET_SIZE/$GET_SIZE MiB ...]\n"
+exit 0
+fi
+
+mkdir -p /sdcard/DCIM/waStatus/.temp
+cp -rf * /sdcard/DCIM/waStatus/.temp & \
+
+while [[ $LEN -le 100 ]]
+do
+  sleep 0
+  CHECK_SIZE=$(du -sb /sdcard/DCIM/waStatus/.temp | awk '{print $1}')
+  CHECK_SIZE=$((CHECK_SIZE/1024/1024))
+
+#  printf "\r[Copying files $CHECK_SIZE/$GET_SIZE MiB ...]"
+
+  LEN=$((100*CHECK_SIZE/GET_SIZE))
+  ProgressBar ${LEN} 100
+
+  if [[ $TRUE == 0 ]]
+  then
+      mv /sdcard/DCIM/waStatus/.temp/* /sdcard/DCIM/waStatus
+      rm -rf /sdcard/DCIM/waStatus/.temp
+    break
+  fi
+
+  if [[ $LEN == 100 ]]
+  then
+    TRUE=0
+  fi
+
+done
+
+#printf "\r[Copying files $GET_SIZE/$GET_SIZE MiB ...]"
+echo
