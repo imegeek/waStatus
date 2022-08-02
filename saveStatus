@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Program Under MIT License.
+
 source whatsapp.art
 sleep 0.2
 
